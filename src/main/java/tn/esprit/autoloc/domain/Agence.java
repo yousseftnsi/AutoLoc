@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 
 @Entity
 @Table(name = "Agence")
@@ -24,5 +26,10 @@ public class Agence {
     private String adresse;
     private String telephone;
 
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
+    private Set<Vehicule> vehicules;
+
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
+    private Set<Employe> employes;
 }
 

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "client")
@@ -27,4 +28,6 @@ public class client {
     private String numPermis;
     private String dateInscription;
 
+    @OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
+    private Set<Reservation> reservations;
 }

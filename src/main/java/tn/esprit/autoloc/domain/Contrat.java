@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Contrat")
@@ -25,5 +26,11 @@ public class Contrat {
     private LocalDate dateSignature;
     private BigDecimal montantTotal;
     private Boolean valide;
+
+    @OneToOne
+    private Reservation reservation;
+
+    @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL)
+    private Set<Paiement> paiements;
 
 }

@@ -24,4 +24,13 @@ public class Reservation {
     private LocalDate dateFin;
     private StatutVehicule statut;
 
+    @ManyToOne
+    private client client;
+
+    @ManyToOne
+    private Vehicule vehicule;
+
+    @OneToOne(mappedBy = "reservation")
+    private Contrat contrat;
+
 }

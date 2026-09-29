@@ -24,4 +24,7 @@ public class Paiement {
     private BigDecimal montant;
     private LocalDate datePaiement;
     private ModePaiment mode ;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Contrat contrat;
 }

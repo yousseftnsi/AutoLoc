@@ -26,4 +26,7 @@ public class Maintenance {
 
     private String description;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Vehicule vehicule;
+
 }
